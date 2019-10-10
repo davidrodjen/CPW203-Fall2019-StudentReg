@@ -42,9 +42,26 @@ function processForm(){
 
 }
 
+function displayStudent(s:Student):void{ //doesn't display anything void
+    // Create <li>
+    let newItem = document.createElement("li");
+    // Adds content to list item
+    newItem.innerText =
+        newItem.innerText = s.firstName + " " + s.lastName;
+    let displaySection =
+        document.querySelector("#student-list"); //Find the child element of student-list
+
+    let list = displaySection.querySelector("#student-list>ul");
+
+    // Add <li> as a child to <ul>
+    list.appendChild(newItem);
+
+}
+
+
 function getStudentFromForm():Student{
     let tempStu = new Student();
-    tempStu.firstName = getInputValue("first-Name"); //this format makes it so you don't have to write more to get information repeatedly
+    tempStu.firstName = getInputValue("first-name"); //this format makes it so you don't have to write more to get information repeatedly
     tempStu.lastName = getInputValue("last-name");
     tempStu.dateOfBirth = new Date(getInputValue("dob")) //Because of conflicting types, wrap it in a new date function
     tempStu.address = getInputValue("address");

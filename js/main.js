@@ -17,9 +17,17 @@ function processForm() {
     displayStudent(nextStu);
     clearForm();
 }
+function displayStudent(s) {
+    var newItem = document.createElement("li");
+    newItem.innerText =
+        newItem.innerText = s.firstName + " " + s.lastName;
+    var displaySection = document.querySelector("#student-list");
+    var list = displaySection.querySelector("#student-list>ul");
+    list.appendChild(newItem);
+}
 function getStudentFromForm() {
     var tempStu = new Student();
-    tempStu.firstName = getInputValue("first-Name");
+    tempStu.firstName = getInputValue("first-name");
     tempStu.lastName = getInputValue("last-name");
     tempStu.dateOfBirth = new Date(getInputValue("dob"));
     tempStu.address = getInputValue("address");
