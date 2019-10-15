@@ -1,0 +1,20 @@
+
+body{
+    background-color:rgb(114, 147, 160);
+}
+
+
+
+h1{
+    text-align: center;
+    background-color:rgb(216,221,239);
+    border-radius: 10px;
+    color:rgb(114, 147, 160);
+    padding: .5em;
+    margin-top: .2em;
+}
+
+form > span{
+    color:red;
+}
+

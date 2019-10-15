@@ -42,8 +42,31 @@ function processForm(){
     let nextStu:Student = getStudentFromForm(); //Method should return entire student object
     displayStudent(nextStu);
     clearForm();
-
 }
+
+
+/**
+ * Clears all the inputs in the form, wrap html inputs with form id
+ */
+function clearForm(){
+    let regForm = <HTMLFormElement> document.getElementById("reg-form");
+    regForm.reset();
+
+
+
+    // let allTextBoxes = document.querySelectorAll("input[type=text]"); //selects all inputs that have text id
+
+    // for(let i = 0; i < allTextBoxes.length; i++){
+    //     let currBox = <HTMLInputElement>allTextBoxes[i]; //cast the alltextboxes[i] into an HTMLInput
+    //     currBox.value = ""; //clear the text boxes, but need to cast the .value
+    // }
+    // notes for another form of for loop selectors
+    // let allTextBoxes:NodeListOf<HTMLInputElement> = document.querySelectorAll("form input[type=text]");
+    // for (let currBox of allTextBoxes) {
+    //         currBox.value = "";
+    // }
+}
+
 
 function displayStudent(s:Student):void{ //doesn't display anything void
     // Create <li>
