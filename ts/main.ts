@@ -28,6 +28,9 @@ stu.firstName = "Joe"; //SET
 let fName = stu.firstName; //GET
 stu.address = "123 fake street";
 
+// Constants
+const programAttr = "data-program";
+
 window.onload = main;
 
 function main(){
@@ -50,12 +53,39 @@ function displayStudent(s:Student):void{ //doesn't display anything void
         newItem.innerText = s.firstName + " " + s.lastName;
     let displaySection =
         document.querySelector("#student-list"); //Find the child element of student-list
-
     let list = displaySection.querySelector("#student-list>ul");
+
+    // Embed student data in <li>
+    newItem.setAttribute(programAttr, s.program);
+    newItem.setAttribute("data-address", s.address);
+    newItem.setAttribute("data-birthdate", s.dateOfBirth.toString());
+
+    console.log(newItem); //needs to be after set the attributes
+
+    // Call showStudentData when the <li> is clicked
+    newItem.onclick = showStudentData;
 
     // Add <li> as a child to <ul>
     list.appendChild(newItem);
 
+}
+/**
+ * Shows individual student data when
+ * a student <li> is clicked
+ */
+function showStudentData(){
+    // console.log(this);
+    let currListItem = <HTMLLIElement>this;
+    let name = currListItem.innerText; //name was set into the currentlistitem
+    let program = currListItem.getAttribute(programAttr);
+    
+    // alert(name + " is studying " + program);
+    // Display the student name in the <h2> under the <div id="#display > h2"
+    let h2 = document.querySelector("#display > h2");
+    h2.innerHTML = name;
+
+    let p = document.querySelector("#display > p");
+    p.innerHTML = name + " is studying " + program;
 }
 
 
